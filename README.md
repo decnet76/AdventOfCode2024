@@ -9,4 +9,6 @@ Added an AoC Chrome extension to show the private leaderboard by day and other c
 TO DO:
 - add execution time for code (like other colleagues are doing); simple problems so far until day 3 so efficiency is not an issue, but in AoC2023 there were some that were running very slowly due to my poor iterative algorithms
 - it may be interesting to estimate the O(n) too
-- need to remove the input files (that was a request from the creator of AoC not to publish them - although they are already public so I don't get the copyright issue)
+
+5/12/2024:
+- Replit tells me that I have used all the development time for the free account, so I have to move to a different setup. No time today to install and configure tools, I may have to skip this Day5
