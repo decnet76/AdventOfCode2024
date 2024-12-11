@@ -11,4 +11,14 @@ TO DO:
 - it may be interesting to estimate the O(n) too
 
 5/12/2024:
-- Replit tells me that I have used all the development time for the free account, so I have to move to a different setup. No time today to install and configure tools, I may have to skip this Day5
+- Replit tells me that I have used all the development time for the free account, so I have to move to a different setup. No time today to install and configure tools, I may have to skip this Day5 --> resolved late in the evening. Using VS Code
+- Added execution time, need to rerun previous days to measure
+
+
+RESULTS
+
+| Day | Puzzle name | Part 1 result | Part 1 complexity | ms | Part 2 result | Part 1 complexity | ms | Total Time (ms) |
+| --- |:-------------:| -----:| -----:| -----:| -----:| -----:| -----:| -----:|
+| 1 | Historian Hysteria | 3574690 | O(n*logn) | 31 | 22565391 | O(n) | 17 | 48 |
+| 2 |       |   |  |  |  |  |
+| 3 |       |   |  |  |  |  |
