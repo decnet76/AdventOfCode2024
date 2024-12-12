@@ -16,11 +16,10 @@ size= len(firstStones)
 print(firstStones)
 
 maxBlinks = 75
-cache=set()
+cache={}
 def findInCache(cache, key):
-    for item in cache:
-        if item[:2] == key:
-            return item[2]
+    if key in cache:
+        return cache[key]
     return None
 
 '''
@@ -45,8 +44,9 @@ def countStones(s: int, blink: int) -> int:
         return r
 '''
 
-# improvement: cache only n=0..9 for all the iterations
-# PS: maybe SET is not the most efficient structure for this
+# improvements: 
+# - cache only n=0..9 for all the iterations
+# - cache as dictionary, not set
 def countStones(s: int, blink: int) -> int:
     #print("countStones(s: " + str(s) + ", blink: " + str(blink) + ")")
     r = findInCache(cache, (s, blink))
@@ -56,21 +56,21 @@ def countStones(s: int, blink: int) -> int:
     else:     
         if blink == maxBlinks:
             if s < 10 :        
-                cache.add((s, blink, 1))
+                cache[(s, blink)] = 1
             return 1
         if s == 0:
             r = countStones(1, blink + 1)
-            cache.add((1, blink + 1, r))
+            cache[(1, blink + 1)] = r
             return r
         l = len(str(s))
         if l%2 == 0:
             left = math.trunc(s/(10**(l/2)))
             rleft = countStones(left, blink + 1)
             if left < 10 :        
-                cache.add((left, blink + 1, rleft))            
+                cache[(left, blink + 1)] = rleft
             rright = countStones(s - int(left*(10**(l/2))), blink + 1)
             if s - int(left*(10**(l/2))) < 10 :
-                cache.add((s - int(left*(10**(l/2))), blink + 1, rright))            
+                cache[(s - int(left*(10**(l/2))), blink + 1)] = rright
             return rleft + rright
         else:
             r = countStones(2024*s, blink + 1)
@@ -81,7 +81,7 @@ def countStones(s: int, blink: int) -> int:
 
 # preload cache
 for i in range(10):
-    cache.add((i, 0, countStones(i, 0)))
+    cache[(i, 0)] = countStones(i, 0)
 
 
 # print(countStones(125,0))
